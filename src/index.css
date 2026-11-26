@@ -1,0 +1,107 @@
+@import 'tailwindcss';
+
+:root {
+  --bg: #16100f;
+  --surface: #221917;
+  --surface-2: #2e2220;
+  --line: #3d2e2b;
+  --text: #f4ece8;
+  --muted: #b3a29d;
+  --accent: #c2405a;
+  --accent-soft: #4a1f28;
+  --gold: #f2b84b;
+  --ok: #5fb37c;
+  --warn: #e0a447;
+  --bad: #d4605a;
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #faf6f3;
+    --surface: #ffffff;
+    --surface-2: #f2ebe7;
+    --line: #e4d9d4;
+    --text: #2a1d1b;
+    --muted: #7a6763;
+    --accent: #9c2540;
+    --accent-soft: #f5dde3;
+    --gold: #e0a020;
+    --ok: #2f8a50;
+    --warn: #b97a12;
+    --bad: #b33a35;
+    color-scheme: light;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-gold: var(--gold);
+  --color-ok: var(--ok);
+  --color-warn: var(--warn);
+  --color-bad: var(--bad);
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: none;
+}
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
+  color: inherit;
+}
+
+/* evita lo zoom automatico di iOS sui campi (font < 16px) */
+input,
+textarea,
+select {
+  font-size: 16px;
+}
+
+.field {
+  width: 100%;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+  padding: 0.65rem 0.8rem;
+  outline: none;
+}
+.field:focus {
+  border-color: var(--accent);
+}
+
+.pt-safe {
+  padding-top: max(env(safe-area-inset-top), 0.5rem);
+}
+.pb-safe {
+  padding-bottom: max(env(safe-area-inset-bottom), 0.75rem);
+}
+.bottom-safe {
+  bottom: max(env(safe-area-inset-bottom), 1rem);
+}
